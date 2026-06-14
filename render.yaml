@@ -1,7 +1,35 @@
+version: "1"
 services:
   - type: web
     name: liteLLM
-    runtime: python
+    runtime: docker
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: bash start.sh
+    dockerfilePath: Dockerfile
+    dockerCommand: bash start.sh
+    envVars:
+      - key: GEMINI_API_KEY_1
+        value: "${GEMINI_API_KEY_1}"
+      - key: GEMINI_API_KEY_2
+        value: "${GEMINI_API_KEY_2}"
+      - key: GEMINI_API_KEY_3
+        value: "${GEMINI_API_KEY_3}"
+      - key: GEMINI_API_KEY_4
+        value: "${GEMINI_API_KEY_4}"
+      - key: GEMINI_API_KEY_5
+        value: "${GEMINI_API_KEY_5}"
+      - key: GEMINI_API_KEY_6
+        value: "${GEMINI_API_KEY_6}"
+      - key: GROQ_API_KEY_1
+        value: "${GROQ_API_KEY_1}"
+      - key: GROQ_API_KEY_2
+        value: "${GROQ_API_KEY_2}"
+      - key: GROQ_API_KEY_3
+        value: "${GROQ_API_KEY_3}"
+      - key: GROQ_API_KEY_4
+        value: "${GROQ_API_KEY_4}"
+      - key: GROQ_API_KEY_5
+        value: "${GROQ_API_KEY_5}"
+      - key: GROQ_API_KEY_6
+        value: "${GROQ_API_KEY_6}"
+      - key: GROQ_API_KEY_7
+        value: "${GROQ_API_KEY_7}"
