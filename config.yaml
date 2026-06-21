@@ -66,5 +66,54 @@ model_list:
       model: groq/llama-3.3-70b-versatile
       api_key: os.environ/GROQ_API_KEY_7
 
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_1
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_2
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_3
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_4
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_5
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_6
+      rpm: 14 # Replace with their actual free tier RPM
+
+  - model_name: aion-2.0
+    litellm_params:
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_7
+      rpm: 14 # Replace with their actual free tier RPM
+
 litellm_settings:
   drop_params: true

@@ -5,11 +5,21 @@ set -e
 # Move to script directory
 cd "$(dirname "$0")"
 
+# Activate virtual environment if present
+if [ -d ".venv" ]; then
+    echo "Activating virtual environment (.venv)..."
+    . .venv/Scripts/activate 2>/dev/null || . .venv/bin/activate 2>/dev/null || true
+fi
+
 if [ -f ".env" ]; then
     echo "Loading .env..."
-    set -a
-    . .env
-    set +a
+    while IFS= read -r line || [ -n "$line" ]; do
+        line=$(printf '%s\n' "$line" | tr -d '\r')
+        case "$line" in
+            ""|"#"*) continue ;;
+            *) export "$line" ;;
+        esac
+    done < ".env"
 else
     echo "No .env file found; using environment variables from Render if available"
 fi
