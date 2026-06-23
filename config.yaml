@@ -30,6 +30,37 @@ model_list:
       model: gemini/gemini-2.5-flash
       api_key: os.environ/GEMINI_API_KEY_6
 
+  # Gemini Image Generation Pool
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_1
+
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_2
+
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_3
+
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_4
+
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_5
+
+  - model_name: gemini-image
+    litellm_params:
+      model: gemini/gemini-3-pro-image-preview
+      api_key: os.environ/GEMINI_API_KEY_6
+
   # Groq Pool
   - model_name: groq
     litellm_params:
