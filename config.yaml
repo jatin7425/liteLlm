@@ -30,7 +30,7 @@ model_list:
       model: gemini/gemini-2.5-flash
       api_key: os.environ/GEMINI_API_KEY_6
 
-  # Gemini Image Generation Pool
+  # Gemini - Image Generation Pool
   - model_name: gemini-image
     litellm_params:
       model: gemini/gemini-2.5-flash-image
