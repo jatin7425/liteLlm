@@ -146,5 +146,77 @@ model_list:
       api_key: os.environ/AION_API_KEY_7
       rpm: 14 # Replace with their actual free tier RPM
 
+  # Whisper - Speech-to-Text Pool
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_1
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_2
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_3
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_4
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_5
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_6
+
+  - model_name: whisper
+    litellm_params:
+      model: groq/whisper-large-v3
+      api_key: os.environ/GROQ_API_KEY_7
+
+  # Orpheus - Text-to-Speech Pool
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_1
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_2
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_3
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_4
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_5
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_6
+
+  - model_name: tts
+    litellm_params:
+      model: groq/canopylabs/orpheus-v1-english
+      api_key: os.environ/GROQ_API_KEY_7
+
 litellm_settings:
   drop_params: true
