@@ -30,37 +30,6 @@ model_list:
       model: gemini/gemini-2.5-flash
       api_key: os.environ/GEMINI_API_KEY_6
 
-  # Gemini - Image Generation Pool
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_1
-
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_2
-
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_3
-
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_4
-
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_5
-
-  - model_name: gemini-image
-    litellm_params:
-      model: gemini/gemini-2.5-flash-image
-      api_key: os.environ/GEMINI_API_KEY_6
-
   # Groq Pool
   - model_name: groq
     litellm_params:
@@ -146,77 +115,12 @@ model_list:
       api_key: os.environ/AION_API_KEY_7
       rpm: 14 # Replace with their actual free tier RPM
 
-  # Whisper - Speech-to-Text Pool
-  - model_name: whisper
+  - model_name: aion-2.0
     litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_1
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_2
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_3
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_4
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_5
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_6
-
-  - model_name: whisper
-    litellm_params:
-      model: groq/whisper-large-v3
-      api_key: os.environ/GROQ_API_KEY_7
-
-  # Orpheus - Text-to-Speech Pool
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_1
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_2
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_3
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_4
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_5
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_6
-
-  - model_name: tts
-    litellm_params:
-      model: groq/canopylabs/orpheus-v1-english
-      api_key: os.environ/GROQ_API_KEY_7
+      model: openai/aion-labs/aion-2.0
+      api_base: https://api.aionlabs.ai/v1
+      api_key: os.environ/AION_API_KEY_8
+      rpm: 14 # Replace with their actual free tier RPM
 
 litellm_settings:
   drop_params: true
