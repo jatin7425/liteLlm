@@ -178,5 +178,36 @@ model_list:
       api_key: os.environ/OPEN_ROUTER_API_KEY_7
       rpm: 20
 
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/nemotron-3-super-120b-a12b
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_1
+      rpm: 40   # NIM free-tier cap
+
+  # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_2
+      rpm: 40
+
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/nemotron-3-super-120b-a12b
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_1
+      rpm: 40   # NIM free-tier cap
+
+  # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_2
+      rpm: 40
+
+
 litellm_settings:
   drop_params: true
