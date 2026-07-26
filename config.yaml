@@ -122,5 +122,61 @@ model_list:
       api_key: os.environ/AION_API_KEY_8
       rpm: 14 # Replace with their actual free tier RPM
 
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_1
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_2
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_3
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_4
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_5
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_6
+      rpm: 20
+
+  # OpenRouter Pool (free tier, tool-calling capable)
+  - model_name: openrouter
+    litellm_params:
+      model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+      api_base: https://openrouter.ai/api/v1
+      api_key: os.environ/OPEN_ROUTER_API_KEY_7
+      rpm: 20
+
 litellm_settings:
   drop_params: true
