@@ -216,3 +216,6 @@ model_list:
 
 litellm_settings:
   drop_params: true
+  custom_provider_map:
+    - provider: "nvidia-flux-kontext"
+      custom_handler: custom_handler.nvidia_flux_kontext
