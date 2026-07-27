@@ -208,6 +208,11 @@ model_list:
       api_key: os.environ/NVIDIA_NIM_API_KEY_2
       rpm: 40
 
+  - model_name: nvidia-flux-kontext
+    litellm_params:
+      model: nvidia-flux-kontext/black-forest-labs/flux.1-kontext-dev
+      api_key: os.environ/NVIDIA_NIM_API_KEY_4
+
 
 litellm_settings:
   drop_params: true
