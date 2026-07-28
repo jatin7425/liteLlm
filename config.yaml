@@ -190,14 +190,14 @@ model_list:
     litellm_params:
       model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
       api_base: https://integrate.api.nvidia.com/v1
-      api_key: os.environ/NVIDIA_NIM_API_KEY_2
+      api_key: os.environ/NVIDIA_NIM_API_KEY_1
       rpm: 40
 
   - model_name: nvidia
     litellm_params:
       model: openai/nvidia/nemotron-3-super-120b-a12b
       api_base: https://integrate.api.nvidia.com/v1
-      api_key: os.environ/NVIDIA_NIM_API_KEY_1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_2
       rpm: 40   # NIM free-tier cap
 
   # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
@@ -208,10 +208,52 @@ model_list:
       api_key: os.environ/NVIDIA_NIM_API_KEY_2
       rpm: 40
 
-  - model_name: nvidia-flux-kontext
+  - model_name: nvidia
     litellm_params:
-      model: nvidia-flux-kontext/black-forest-labs/flux.1-kontext-dev
+      model: openai/nvidia/nemotron-3-super-120b-a12b
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_3
+      rpm: 40   # NIM free-tier cap
+
+  # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_3
+      rpm: 40
+
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/nemotron-3-super-120b-a12b
+      api_base: https://integrate.api.nvidia.com/v1
       api_key: os.environ/NVIDIA_NIM_API_KEY_4
+      rpm: 40   # NIM free-tier cap
+
+  # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_4
+      rpm: 40
+
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/nemotron-3-super-120b-a12b
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_5
+      rpm: 40   # NIM free-tier cap
+
+  # NVIDIA NIM Pool — fallback (smaller/older model, likely lower current contention)
+  - model_name: nvidia
+    litellm_params:
+      model: openai/nvidia/llama-3.3-nemotron-super-49b-v1.5
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: os.environ/NVIDIA_NIM_API_KEY_5
+      rpm: 40
+
+
 
 
 litellm_settings:
