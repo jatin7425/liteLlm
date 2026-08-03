@@ -256,5 +256,9 @@ model_list:
 
 
 
+general_settings:
+  # Proxy master key, read from the LITELLM_MASTER_KEY env var (must start with "sk-")
+  master_key: os.environ/LITELLM_MASTER_KEY
+
 litellm_settings:
   drop_params: true
