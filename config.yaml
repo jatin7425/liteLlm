@@ -253,8 +253,36 @@ model_list:
       api_key: os.environ/NVIDIA_NIM_API_KEY_5
       rpm: 40
 
+  # Embedding model — for RAG project
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_1
 
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_2
 
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_3
+
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_4
+
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_5
+
+  - model_name: embed-model
+    litellm_params:
+      model: gemini/text-embedding-004
+      api_key: os.environ/GEMINI_API_KEY_6
 
 litellm_settings:
   drop_params: true
