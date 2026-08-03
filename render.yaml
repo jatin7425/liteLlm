@@ -7,6 +7,8 @@ services:
     dockerfilePath: Dockerfile
     dockerCommand: bash start.sh
     envVars:
+      - key: LITELLM_MASTER_KEY
+        value: "${LITELLM_MASTER_KEY}"
       - key: GEMINI_API_KEY_1
         value: "${GEMINI_API_KEY_1}"
       - key: GEMINI_API_KEY_2
