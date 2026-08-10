@@ -1,49 +1,67 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -e
-
-# Move to script directory
 cd "$(dirname "$0")"
 
-# Activate virtual environment if present
+# ---------------------------------------------------------------------------
+# Local dev only. On Render, env vars are injected directly and no .env exists.
+# `set -a` auto-exports everything sourced, which handles quoted values and
+# spaces correctly (unlike a manual export loop).
+# ---------------------------------------------------------------------------
 if [ -d ".venv" ]; then
-    echo "Activating virtual environment (.venv)..."
-    . .venv/Scripts/activate 2>/dev/null || . .venv/bin/activate 2>/dev/null || true
+    echo "Activating virtualenv..."
+    # shellcheck disable=SC1091
+    . .venv/bin/activate 2>/dev/null || . .venv/Scripts/activate 2>/dev/null || true
 fi
 
 if [ -f ".env" ]; then
     echo "Loading .env..."
-    while IFS= read -r line || [ -n "$line" ]; do
-        line=$(printf '%s\n' "$line" | tr -d '\r')
-        case "$line" in
-            ""|"#"*) continue ;;
-            *) export "$line" ;;
-        esac
-    done < ".env"
+    set -a
+    # shellcheck disable=SC1091
+    . ./.env
+    set +a
 else
-    echo "No .env file found; using environment variables from Render if available"
+    echo "No .env found - using injected environment variables."
 fi
 
-echo "Starting LiteLLM..."
+# ---------------------------------------------------------------------------
+# Render assigns $PORT and health-checks it. Binding anywhere else fails deploy.
+# ---------------------------------------------------------------------------
+PORT="${PORT:-4000}"
+
+# ---------------------------------------------------------------------------
+# --detailed_debug logs full request/response bodies including credentials.
+# Off unless explicitly enabled.
+# ---------------------------------------------------------------------------
+DEBUG_FLAG=""
+if [ "${LITELLM_DEBUG:-false}" = "true" ]; then
+    echo "WARNING: detailed debug enabled - logs will contain request bodies."
+    DEBUG_FLAG="--detailed_debug"
+fi
+
+# ---------------------------------------------------------------------------
+# Fail fast on missing config rather than letting litellm start with no routes.
+# ---------------------------------------------------------------------------
+if [ ! -f "config.yaml" ]; then
+    echo "ERROR: config.yaml not found in $(pwd)" >&2
+    exit 1
+fi
+
+if [ -z "${LITELLM_MASTER_KEY:-}" ]; then
+    echo "WARNING: LITELLM_MASTER_KEY is not set - proxy will be unauthenticated." >&2
+fi
+
+echo "Starting LiteLLM on port ${PORT}..."
 
 if command -v litellm >/dev/null 2>&1; then
-    exec litellm --config config.yaml --detailed_debug
+    # shellcheck disable=SC2086
+    exec litellm --config config.yaml --host 0.0.0.0 --port "${PORT}" ${DEBUG_FLAG}
 fi
 
-if command -v python >/dev/null 2>&1 && python -c "import importlib.util; exit(0 if importlib.util.find_spec('litellm') else 1)" >/dev/null 2>&1; then
-    exec python -m litellm.main --config config.yaml --detailed_debug
+if command -v python3 >/dev/null 2>&1; then
+    # shellcheck disable=SC2086
+    exec python3 -m litellm --config config.yaml --host 0.0.0.0 --port "${PORT}" ${DEBUG_FLAG}
 fi
 
-if command -v python3 >/dev/null 2>&1 && python3 -c "import importlib.util; exit(0 if importlib.util.find_spec('litellm') else 1)" >/dev/null 2>&1; then
-    exec python3 -m litellm.main --config config.yaml --detailed_debug
-fi
-
-echo "ERROR: LiteLLM is not installed. Make sure Render installs dependencies from requirements.txt."
+echo "ERROR: litellm is not installed. Check requirements.txt and the Docker build." >&2
 exit 1
-
-
-if [ -x "$LITELLM_CMD" ]; then
-    exec "$LITELLM_CMD" --config config.yaml --detailed_debug
-else
-    exec "$PYTHON" -m litellm.main --config config.yaml --detailed_debug
-fi
