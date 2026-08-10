@@ -254,79 +254,79 @@ model_list:
       rpm: 40
 
   # Embedding model — for RAG project
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_1
 
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_2
 
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_3
 
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_4
 
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_5
 
-  - model_name: embed-model
+  - model_name: embed-gemini
     litellm_params:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_6
 
-  - model_name: embed-bge-m3-cloudflare
+  - model_name: embed-cloudflare
     litellm_params:
       model: openai/@cf/baai/bge-m3
       api_base: https://api.cloudflare.com/client/v4/accounts/6ebde4a7292d3b3dde4b09c98291f978/ai/v1
       api_key: os.environ/CF_API_TOKEN
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_1
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_2
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_3
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_4
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_5
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_6
       rpm: 20
 
-  - model_name: transcribe-groq/whisper-large-v3-turbo
+  - model_name: transcribe-groq
     litellm_params:
       model: groq/whisper-large-v3-turbo
       api_key: os.environ/GROQ_API_KEY_7
@@ -334,3 +334,6 @@ model_list:
 
 litellm_settings:
   drop_params: true
+  
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
