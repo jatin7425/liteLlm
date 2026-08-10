@@ -1,35 +1,103 @@
 version: "1"
+
 services:
   - type: web
-    name: liteLLM
+    name: litellm
     runtime: docker
     plan: free
-    dockerfilePath: Dockerfile
+    region: singapore
+    dockerfilePath: ./Dockerfile
     dockerCommand: bash start.sh
+    healthCheckPath: /health/liveliness
+    autoDeploy: true
+
     envVars:
+      # ---- proxy auth (generate a strong random string) ----
+      - key: LITELLM_MASTER_KEY
+        sync: false
+
+      # ---- debug: set to "true" only when actively troubleshooting ----
+      - key: LITELLM_DEBUG
+        value: "false"
+
+      # ---- Cloudflare Workers AI (embeddings) ----
+      - key: CF_ACCOUNT_ID
+        sync: false
+      - key: CF_API_TOKEN
+        sync: false
+
+      # ---- Gemini pool ----
       - key: GEMINI_API_KEY_1
-        value: "${GEMINI_API_KEY_1}"
+        sync: false
       - key: GEMINI_API_KEY_2
-        value: "${GEMINI_API_KEY_2}"
+        sync: false
       - key: GEMINI_API_KEY_3
-        value: "${GEMINI_API_KEY_3}"
+        sync: false
       - key: GEMINI_API_KEY_4
-        value: "${GEMINI_API_KEY_4}"
+        sync: false
       - key: GEMINI_API_KEY_5
-        value: "${GEMINI_API_KEY_5}"
+        sync: false
       - key: GEMINI_API_KEY_6
-        value: "${GEMINI_API_KEY_6}"
+        sync: false
+
+      # ---- Groq pool ----
       - key: GROQ_API_KEY_1
-        value: "${GROQ_API_KEY_1}"
+        sync: false
       - key: GROQ_API_KEY_2
-        value: "${GROQ_API_KEY_2}"
+        sync: false
       - key: GROQ_API_KEY_3
-        value: "${GROQ_API_KEY_3}"
+        sync: false
       - key: GROQ_API_KEY_4
-        value: "${GROQ_API_KEY_4}"
+        sync: false
       - key: GROQ_API_KEY_5
-        value: "${GROQ_API_KEY_5}"
+        sync: false
       - key: GROQ_API_KEY_6
-        value: "${GROQ_API_KEY_6}"
+        sync: false
       - key: GROQ_API_KEY_7
-        value: "${GROQ_API_KEY_7}"
+        sync: false
+
+      # ---- Aion Labs pool ----
+      - key: AION_API_KEY_1
+        sync: false
+      - key: AION_API_KEY_2
+        sync: false
+      - key: AION_API_KEY_3
+        sync: false
+      - key: AION_API_KEY_4
+        sync: false
+      - key: AION_API_KEY_5
+        sync: false
+      - key: AION_API_KEY_6
+        sync: false
+      - key: AION_API_KEY_7
+        sync: false
+      - key: AION_API_KEY_8
+        sync: false
+
+      # ---- OpenRouter pool ----
+      - key: OPEN_ROUTER_API_KEY_1
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_2
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_3
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_4
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_5
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_6
+        sync: false
+      - key: OPEN_ROUTER_API_KEY_7
+        sync: false
+
+      # ---- NVIDIA NIM pool ----
+      - key: NVIDIA_NIM_API_KEY_1
+        sync: false
+      - key: NVIDIA_NIM_API_KEY_2
+        sync: false
+      - key: NVIDIA_NIM_API_KEY_3
+        sync: false
+      - key: NVIDIA_NIM_API_KEY_4
+        sync: false
+      - key: NVIDIA_NIM_API_KEY_5
+        sync: false
