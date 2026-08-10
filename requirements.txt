@@ -1,1 +1,9 @@
-litellm[proxy]
+# Pinned so a rebuild resolves the same tree. An unpinned `litellm[proxy]` picks
+# up whatever transitive versions are current at build time, which is how the
+# proxy started failing at import on deploy.
+litellm[proxy]==1.96.0
+
+# litellm 1.96.0 imports `get_flat_dependant` from fastapi.dependencies.utils,
+# which fastapi removed in 0.140.7. litellm's own constraint (>=0.136.3,<1.0) is
+# too loose to keep that out, so cap it here until litellm drops the import.
+fastapi<0.140.7
