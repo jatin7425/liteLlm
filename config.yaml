@@ -290,5 +290,47 @@ model_list:
       api_base: https://api.cloudflare.com/client/v4/accounts/6ebde4a7292d3b3dde4b09c98291f978/ai/v1
       api_key: os.environ/CF_API_TOKEN
 
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_1
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_2
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_3
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_4
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_5
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_6
+      rpm: 20
+
+  - model_name: transcribe-groq/whisper-large-v3-turbo
+    litellm_params:
+      model: groq/whisper-large-v3-turbo
+      api_key: os.environ/GROQ_API_KEY_7
+      rpm: 20
+
 litellm_settings:
   drop_params: true
