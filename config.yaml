@@ -284,7 +284,7 @@ model_list:
       model: gemini/gemini-embedding-001
       api_key: os.environ/GEMINI_API_KEY_6
 
-  - model_name: embed-bge-m3-couldflare
+  - model_name: embed-bge-m3-cloudflare
     litellm_params:
       model: openai/@cf/baai/bge-m3
       api_base: https://api.cloudflare.com/client/v4/accounts/6ebde4a7292d3b3dde4b09c98291f978/ai/v1
